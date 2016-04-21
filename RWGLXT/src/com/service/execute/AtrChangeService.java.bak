@@ -1,0 +1,153 @@
+package com.service.execute;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import com.dao.AtrributeDAO;
+import com.dao.CaDAO;
+import com.dao.DaDAO;
+import com.dao.IspDAO;
+import com.dao.TriggerAtrDAO;
+import com.domain.Atrribute;
+import com.domain.Ca;
+import com.domain.Da;
+import com.domain.Isp;
+import com.domain.TriggerAtr;
+import com.domain.execute.AttributeDaoResult;
+
+public class AtrChangeService {
+	public void atrExecute(String tag, Float value) {
+		// update attribute value
+		AtrributeDAO atrdao = new AtrributeDAO();
+		AttributeDaoResult adr = new AttributeDaoResult();
+		Integer atrId = atrdao.getAtrByTag(tag).get(0).getAtrId();
+		Atrribute tempatr = atrdao.getAtrByTag(tag).get(0);
+		Float change = value- tempatr.getValue();
+		adr = atrdao.updateById(atrId, value, change);
+		Float atrValue = value;
+		// check if that action affects any ca or da,in a new xiancheng. change
+		// the state
+		TriggerAtrDAO tadao = new TriggerAtrDAO();
+		// add ca and isp
+		DaDAO dadao = new DaDAO();
+		List<TriggerAtr> talist = tadao.getTriggerByAtrId(adr.getAtrId());
+		try {
+			for (int i = 0; i < talist.size(); i++) {
+				TriggerAtr ta = talist.get(i);
+				Integer eventid = ta.getId().getEventTrigger().getTriggerId();
+				switch (ta.getSymbol()) {
+				case 1:
+					if (ta.getValue().floatValue() == atrValue.floatValue()) {
+						System.out.println(1);
+				//		updateISP(eventid);
+				//		updateAutoCa(eventid);
+						System.out.println("event"+eventid);
+						updateAutoDa(eventid);
+						dadao.updateNotAutoDaByEvent(eventid);
+
+						// updateNotAutoCa(eventid);
+					}
+					;
+					break;
+				case 2:
+					if (atrValue.floatValue()>ta.getValue().floatValue()) {
+						System.out.println(2);
+				//		updateISP(eventid);
+				//		updateAutoCa(eventid);
+						updateAutoDa(eventid);
+						dadao.updateNotAutoDaByEvent(eventid);
+
+						// updateNotAutoCa(eventid);
+					}
+					;
+					break;
+				case 3:
+					if (atrValue.floatValue()<ta.getValue().floatValue()) {
+						System.out.println(3);
+				//		updateISP(eventid);
+				//		updateAutoCa(eventid);
+						updateAutoDa(eventid);
+						dadao.updateNotAutoDaByEvent(eventid);
+
+						// updateNotAutoCa(eventid);
+					}
+					;
+					break;
+				case 4:
+					if (atrValue.floatValue()>=ta.getValue().floatValue()) {
+						System.out.println(4);
+				//		updateISP(eventid);
+				//		updateAutoCa(eventid);
+						updateAutoDa(eventid);
+						dadao.updateNotAutoDaByEvent(eventid);
+
+						// updateNotAutoCa(eventid);
+					}
+					;
+					break;
+				case 5:
+					if (atrValue.floatValue()<ta.getValue().floatValue()) {
+						System.out.println(5);
+				//		updateISP(eventid);
+				//		updateAutoCa(eventid);
+						updateAutoDa(eventid);
+						dadao.updateNotAutoDaByEvent(eventid);
+
+						// updateNotAutoCa(eventid);
+					}
+					;
+					break;
+				}
+				System.out.println("down");
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// new Thread(new Runnable() {
+		// public void run() {
+		//
+		// }
+		// });
+	}
+
+	private void updateAutoDa(Integer eventid) {
+		DaDAO dadao = new DaDAO();
+		List<Da> dalist = dadao.findDaByEventAndState(eventid);
+		dadao.updateAutoDaByEvent(dalist);
+		// new function
+
+		// ExecuteFollowDaService service = new ExecuteFollowDaService();
+		// service.execute(dalist);
+	}
+
+	private void updateISP(Integer eventid) {
+		IspDAO ispdao = new IspDAO();
+		List<Isp> isplist = ispdao.getEventISP(eventid);
+		ispdao.updateEventISP(isplist);
+		if (isplist != null && isplist.size() > 0) {
+			CaDAO cadao = new CaDAO();
+			for (Isp isp : isplist) {
+				cadao.changeStateByISP(isp.getIspId(), "TriggerPending");
+			}
+		}
+	}
+
+	private void updateAutoCa(Integer eventid) {
+		CaDAO cadao = new CaDAO();
+		List<Ca> calist = cadao.getCabyEvent(eventid);
+		if (calist != null && calist.size() > 0) {
+			DaDAO dadao = new DaDAO();
+			for (Ca ca : calist) {
+				ca.setExcuteStarttime(new Timestamp(System.currentTimeMillis()));
+				cadao.changeState(ca, "Executing");
+				dadao.changeStateByCA(ca.getCaId(), "TriggerPending");
+			}
+		}
+	}
+
+	// private void updateNotAutoCa(Integer eventid) {
+	// CaDAO cadao = new CaDAO();
+	// cadao.updateCaByEvent(eventid);
+	// }
+}

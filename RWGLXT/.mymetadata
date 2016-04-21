@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="RWGLXT"
+  id="myeclipse.1438653904207"
+  context-root="/RWGLXT"
+  j2ee-spec="5.0"
+  archive="RWGLXT.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

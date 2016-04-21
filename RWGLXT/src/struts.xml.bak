@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="whu" namespace="/" extends="struts-default,json-default">
+		<action name="login" class="com.action.LoginAction" method="login">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getType" class="com.action.TypeAction" method="getType">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getTriggersbyId" class="com.action.DaAction" method="getTriggersbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>		
+		<action name="setTriggersbyId" class="com.action.DaAction" method="setTriggersbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertFP" class="com.action.FightPostionAction" method="insertFP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteFP" class="com.action.FightPostionAction" method="deleteFP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getFP" class="com.action.FightPostionAction" method="getFP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getFPbyOrder" class="com.action.FightPostionAction" method="getFPbyOrder">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		
+		<action name="getFPbySearch" class="com.action.FightPostionAction" method="getFPbySearch">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getSystem" class="com.action.SystemsAction" method="getSystem">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getSystembyOrder" class="com.action.SystemsAction" method="getSystembyOrder">
+			<result name="Success" type="json">
+				<param name="root">responseJson</param>
+			</result>	
+		</action>
+		
+		<action name="getSystembyId" class="com.action.SystemsAction" method="getSystembyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getSystembySearch" class="com.action.SystemsAction" method="getSystembySearch">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="BySystem" class="com.action.AtrAction" method="BySystem">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="byId" class="com.action.AtrAction" method="byId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertAtr" class="com.action.AtrAction" method="insertAtr">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteAtr" class="com.action.AtrAction" method="deleteAtr">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertUser" class="com.action.UsersAction" method="insertUser">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteUser" class="com.action.UsersAction" method="deleteUser">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateUser" class="com.action.UsersAction" method="updateUser">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getUser" class="com.action.UsersAction" method="getUser">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getUserbyOrder" class="com.action.UsersAction" method="getUserbyOrder">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getUserbySearch" class="com.action.UsersAction" method="getUserbySearch">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getExe" class="com.action.DaAction" method="getExe">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDAbyCA" class="com.action.DaAction" method="getDAbyCA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDAbyType" class="com.action.DaAction" method="getDAbyType">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDAbyState" class="com.action.DaAction" method="getDAbyState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDAbyId" class="com.action.DaAction" method="getDAbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertDA" class="com.action.DaAction" method="insertDA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result> 
+		</action>
+		
+		<action name="updateDA" class="com.action.DaAction" method="updateDA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteDA" class="com.action.DaAction" method="deleteDA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateDAState" class="com.action.DaAction" method="updateDAState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDAPost" class="com.action.SequenceAction" method="getDAPost">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getCAPost" class="com.action.SequenceAction" method="getCAPost">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDAPre" class="com.action.SequenceAction" method="getDAPre">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertCA" class="com.action.CaAction" method="insertCA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateCA" class="com.action.CaAction" method="updateCA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteCA" class="com.action.CaAction" method="deleteCA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getCAbyType" class="com.action.CaAction" method="getCAbyType">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getCAbyState" class="com.action.CaAction" method="getCAbyState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateCAState" class="com.action.CaAction" method="updateCAState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getCAbyId" class="com.action.CaAction" method="getCAbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getCAbyISP" class="com.action.CaAction" method="getCAbyISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="DAlocDS" class="com.action.CaAction" method="DAlocDS">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertDS" class="com.action.DsAction" method="insertDS">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateDS" class="com.action.DsAction" method="updateDS">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteDS" class="com.action.DsAction" method="deleteDS">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDSType" class="com.action.DSTypeAction" method="getDSType">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDSbyCA" class="com.action.DsAction" method="getDSbyCA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDSbyType" class="com.action.DsAction" method="getDSbyType">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDSbyId" class="com.action.DsAction" method="getDSbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertISP" class="com.action.IspAction" method="insertISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateISP" class="com.action.IspAction" method="updateISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteISP" class="com.action.IspAction" method="deleteISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateISPState" class="com.action.IspAction" method="updateISPState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getToBeApprovedISP" class="com.action.IspAction" method="getToBeApprovedISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getExeISP" class="com.action.IspAction" method="getExeISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getISPbyId" class="com.action.IspAction" method="getISPbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getISPbyState" class="com.action.IspAction" method="getISPbyState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getISPdef" class="com.action.IspAction" method="getISPdef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="IspDef" class="com.action.DefAction" method="IspDef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="CaDef" class="com.action.DefAction" method="CaDef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="DaDef" class="com.action.DefAction" method="DaDef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="DsDef" class="com.action.DefAction" method="DsDef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteDaDef" class="com.action.DefAction" method="deleteDaDef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteCaDef" class="com.action.DefAction" method="deleteCaDef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="deleteIspDef" class="com.action.DefAction" method="deleteIspDef">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="attrChange" class="com.action.CheckStateAction" method="changeAttributeValue">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="checkTime" class="com.action.CheckStateAction" method="checkTimeState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getPendingCA" class="com.action.CaAction" method="getPendingCA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getRejISP" class="com.action.IspAction" method="getRejectISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="submitISP" class="com.action.IspAction" method="submitISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getPendingISP" class="com.action.IspAction" method="getPendingISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="submitCA" class="com.action.CaAction" method="submitCA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="rejctISP" class="com.action.IspAction" method="rejectISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="apprISP" class="com.action.IspAction" method="apprISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateFP" class="com.action.FightPostionAction" method="updateFP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+
+		<action name="updateSys" class="com.action.SystemsAction" method="updateSys">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="insertSys" class="com.action.SystemsAction" method="insertSys">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="updateAtr" class="com.action.AtrAction" method="updateAtr">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="startDA" class="com.action.DaAction" method="daStart">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="finishDA" class="com.action.DaAction" method="daFinish">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getEDA" class="com.action.DaAction" method="getEDA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getPDA" class="com.action.DaAction" method="getPDA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getAttrbyId" class="com.action.AtrAction" method="getAtrbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getAttrbySearch" class="com.action.AtrAction" method="getAtrbySearch">
+			<result name="Success" type="json">
+				<param name="root">responseJson</param>  
+            </result> 
+		</action>
+		<action name="getAtrBySystem" class="com.action.AtrAction" method="getAtrBySystem">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getAllAtr" class="com.action.AtrAction" method="getAllAtr">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getExcutingISP" class="com.action.IspAction" method="getExcutingISP">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="executeOPC" class="com.action.DaAction" method="executeOPC">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="test" class="com.action.Test" method = "execute">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="saveISPLayout" class="com.action.IspAction" method = "saveISPLayout">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="reloadISPPic" class="com.action.IspAction" method = "reloadISPPic">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="logout" class="com.action.LoginAction" method = "logout">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getPreDAbyId" class="com.action.DaAction" method = "getPreDAbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getPostDAbyId" class="com.action.DaAction" method = "getPostDAbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getRunningState" class="com.action.IspAction" method = "getRunningState">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getNodesId" class="com.action.IspAction" method = "getNodesId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="loadMonitor" class="com.action.IspAction" method = "loadMonitor">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getCurrDa" class="com.action.DaAction" method = "getCurrDa">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="setCurrentDa" class="com.action.DaAction" method = "setCurrentDa">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getDaByIsp" class="com.action.DaAction" method = "getDaByIsp">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getISPStartTime" class="com.action.IspAction" method = "getISPStartTime">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		<action name="getDefISPbyId" class="com.action.IspAction" method = "getDefISPbyId">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		
+		
+		<action name="getCASequencebyDA" class="com.action.DaAction" method = "getCASequencebyDA">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="getProvNodes" class="com.action.IspAction" method = "getProvNodes">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+		<action name="uploadExc" class="com.action.AtrAction" method="uploadExc">
+			<result name="Success" type="json">  
+                <param name="root">responseJson</param>  
+            </result>  
+		</action>
+	</package>
+</struts>    
