@@ -537,7 +537,7 @@ public class DaDAO extends BaseHibernateDAO {
 		// StringBuffer append
 	}
 	public List<Da> findStartedDaByEventAndState(Integer event) {
-		String hql = "from Da as da where da.eventTriggerByEvent.triggerId='"+event+"' and da.triggertype='state' and da.state='Executing' and da.ifAuto=1";
+		String hql = "from Da as da where da.eventTriggerByEndEvent.triggerId='"+event+"' and da.triggertype='state' and da.state='Executing' and da.ifAuto=1";
 		Session session = sessfac.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -589,7 +589,7 @@ public class DaDAO extends BaseHibernateDAO {
 		Transaction transaction = session.beginTransaction();
 		try {
 			for (int i = 0; i < dalist.size(); i++) {
-				Query query = session.createQuery("update Da as da set da.state='TriggerPending',da.excuteStart='"+new Timestamp(System.currentTimeMillis())+"' where da.daId='"+dalist.get(i).getDaId()+"'");
+				Query query = session.createQuery("update Da as da set da.state='Finish',da.excuteEnd='"+new Timestamp(System.currentTimeMillis())+"' where da.daId='"+dalist.get(i).getDaId()+"'");
 				//query.setParameter("daid", dalist.get(i).getDaId());
 				//query.setTimestamp("start",
 				//		new Timestamp(System.currentTimeMillis()));
