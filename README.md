@@ -1,4 +1,3 @@
 ﻿# RWGLXTtest
-RWGLXT归纳仓库
-
-4-25genggai
+2016-5.2
+舰长预览时间界面修改
