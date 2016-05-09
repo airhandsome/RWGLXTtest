@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.dao.AtrributeDAO;
 import com.dao.CaDAO;
 import com.dao.DaDAO;
 import com.dao.DaatrDAO;
@@ -14,6 +15,7 @@ import com.dao.DsDAO;
 import com.dao.EventTriggerDAO;
 import com.dao.SequenceDAO;
 import com.dao.TriggerAtrDAO;
+import com.domain.Atrribute;
 import com.domain.Ca;
 import com.domain.Da;
 import com.domain.Daatr;
@@ -185,16 +187,28 @@ public class DAService   {
 		List<TriggerAtr> sameTrIdList = tadao.getTriggerAtr(eventId);
 		//!@#0419
 		EventTriggerDAO etdao = new EventTriggerDAO();
-		if(etdao.findById(eventId).getLogic()=="")
-			return null;
-		String[] logic_dandu = etdao.findById(eventId).getLogic().split("#");
+		String[] logic_dandu= null;
+		if(etdao.findById(eventId).getLogic()==null || etdao.findById(eventId).getLogic()==""){
+				;
+		}
+		else		
+			logic_dandu = etdao.findById(eventId).getLogic().split("#");
+		
 		for (int i = 0; i < sameTrIdList.size(); i++) {
 					Map map = new HashMap();
+//					Atrribute now_at = sameTrIdList.get(i).getId().getAtrribute();
 					Integer attrid_ = sameTrIdList.get(i).getId().getAtrribute().getAtrId();
-					String name_ = sameTrIdList.get(i).getId().getAtrribute().getName();
+					
+					AtrributeDAO atrdao = new AtrributeDAO();
+					Atrribute now_at = new Atrribute();
+					now_at = atrdao.findById(attrid_);
+					
+					String name_ = now_at.getName();
 					Integer symbs_ = sameTrIdList.get(i).getSymbol();
 					Float vals_  =sameTrIdList.get(i).getValue();
-					String logics_ = logic_dandu[i];
+					String logics_ = "";
+					if(logic_dandu!=null)
+					    logics_ = logic_dandu[i];
 					map.put("attrid", attrid_);
 					map.put("symbs", symbs_);
 					map.put("vals", vals_ );
@@ -206,7 +220,7 @@ public class DAService   {
 					else if(logics_=="2")
 						logics_word = "or";
 					else 
-						logics_word = "end";
+						logics_word = "";
 					
 					if(symbs_ == 1)
 						symbs_word = "=";
@@ -218,6 +232,8 @@ public class DAService   {
 						symbs_word = ">=";
 					else if(symbs_ == 5)
 						symbs_word = "<=";
+					else
+						symbs_word = "";
 					
 					map.put("st", name_+" "+symbs_word+" "+vals_+" "+logics_word);
 					u.add(map);
