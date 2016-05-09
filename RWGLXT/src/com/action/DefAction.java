@@ -37,14 +37,14 @@ public class DefAction extends ActionSupport {
 	private Integer startsymbol;
 	private Float startvalue;
 
-	private Integer ifauto;
+	private Integer ifAuto;
 	
-	public Integer getIfauto() {
-		return ifauto;
+	public Integer getIfAuto() {
+		return ifAuto;
 	}
 
-	public void setIfauto(Integer ifauto) {
-		this.ifauto = ifauto;
+	public void setIfAuto(Integer ifAuto) {
+		this.ifAuto = ifAuto;
 	}
 
 	public void setPreDA(Integer[] preDA) {
@@ -212,8 +212,10 @@ public class DefAction extends ActionSupport {
 				for(Integer preid:preDA){
 					list.add(preid);
 				}
-			id = insert.createDA(daId, planStart, planEnd, triggertype, list,
-					caId, startattributeId, startsymbol, startvalue,ifauto);
+//			System.out.println("daid ="+daId);
+//			System.out.println("triggertype ="+triggertype);
+//			System.out.println("ifauto0 ="+ifAuto);
+			id = insert.createDA(daId, planStart, planEnd, triggertype, list,caId, startattributeId, startsymbol, startvalue,ifAuto);
 			ServletActionContext.getResponse().getWriter().print(id);
 			return null;
 		} catch (CloneNotSupportedException e) {
