@@ -194,7 +194,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <button id="apprBtn" class="btn btn-success btn-sm" data-focus="">批准</button>
                                 <button id="rejcBtn" class="btn btn-warning btn-sm" data-focus="">驳回</button>
                                 <button id="watchBtn" class="btn btn-watch btn-sm" data-focus="">预览</button>
-                                <button id="returnBtn" class="btn btn-inverse btn-sm" data-focus="">返回</button>
                             </ul>
                             <iframe id="ispGraph" src="check.jsp" frameborder="0" name="ispGraph" width="100%;" height="785px;" scrolling="no"></iframe>
                         </div>
@@ -308,7 +307,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     var idx = $(this).attr("href").substr(6);
                     $("#apprBtn").attr("data-focus", idx);
                     $("#watchBtn").attr("data-focus", idx);
-                    $("#returnBtn").attr("data-focus", idx);
                     $.ajax({
                         url: "getISPbyId.action",
                         data: {ispId: idx},
@@ -386,25 +384,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         },
                     });
                 });
-       
-                     $("#returnBtn").bind("click", function() {
-	                    if($(this).attr("data-focus") == "")
-	                        return;
-	                    $("#typex").text($(this).find("span").text());               
-	                    var idx = $("#apprBtn").attr("data-focus");
-	                    $.ajax({
-	                        url: "getISPbyId.action",
-	                        data: {ispId: idx},
-	                        dataType: "json",
-	                        success: function(data) {
-	                            data = data[0];
-	                            $("#ispGraph").attr("src", "check.jsp");//!@#ispGraph2_
-	                            $("#ispname").val(data.name);
-	                            $("#ispdesc").val(data.description);
-	                        },
-	                    });
-	                });
-       
        
             });
     </script>
