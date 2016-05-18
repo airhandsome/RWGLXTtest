@@ -224,10 +224,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <br />
                                 <ul class="nav nav-pills">
                                     <li class="active">
-                                        <a href="#DAL", data-toggle="pill">任务关联DA</a>
+                                        <a id="getDApage",href="#DAL", data-toggle="pill">任务关联DA</a>
                                     </li>
                                     <li>
-                                        <a href="#DSL", data-toggle="pill">任务关联DS</a>
+                                        <a id="getDSpage",href="#DSL", data-toggle="pill">任务关联DS</a>
                                     </li>
                                 </ul>
                                 <div id="modal-container" class="modal fade" aria-hidden="true">
@@ -927,6 +927,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     data: {daId: idx > 0? idx: 0 - idx},
                     success: function(data) {
                         data = data[0];
+		                document.getElementById("getDApage").click();
                         $("option[value='" + data.triggertype + "']").attr("selected", true);
                         $("#starttime2").val(data.planStart.split(' ')[0])
                         $("#starttime").val(data.planStart.split(' ')[1])
@@ -947,7 +948,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 }
                             });
                         }
-                    }
+                    },
+           	error: function(XMLHttpRequest, textStatus, errorThrown){
+					document.getElementById("getDSpage").click();
+			}
                 });
                 $("button[href^='#add-']").bind("click", function(){
                     var x = $(this).attr("href").substr(5)
